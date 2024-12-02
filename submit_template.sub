@@ -1,0 +1,26 @@
+## before running, directories log, error, and output must exist
+## this is a TEMPLATE file!! 
+## Each Rscript should use a copy of this, replacing script.R with the appropriate Rscript files name
+## replace log, error variables with the appropriate subdirectory names
+## output should be saved to output/<SCRIPTNAME> subdirectory too, as coded in the Rscript
+
+log = log/<SCRIPTNAME>/$(Cluster).log
+error = error/<SCRIPTNAME>/$(Cluster).err
+
+## output locations controlled by Rscript code
+
+container_image = osdf:///ospool/uc-shared/public/OSG-Staff/xalim_stat/R_tidyverse_FITSio.sif
+
+executable = ./runScript.sh
+arguments = <SCRIPTNAME>.R $(region).csv
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = <SCRIPTNAME>.R, runScript.sh, $(region).csv
+
+## update as necessary upon testing
+request_cpus = 1
+request_memory = 1GB
+request_disk = 2GB
+
+queue region from testRegionList
