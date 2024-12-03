@@ -13,7 +13,7 @@ if (require("tidyr")) {
 args <- commandArgs(trailingOnly = TRUE)
 print(args)
 print(getwd())
-country <- read.csv(paste0("by_region/",args[1],".csv"))
+country <- read.csv(paste0(args[1],".csv"))
 
 country$title_artist <- paste(sep="\n",country$title, country$artist)
 
@@ -27,5 +27,4 @@ wide_df <- country %>%
 
 print(length(wide_df))
 
-saveRDS(wide_df, paste0("ranking_songs/",args[1],"_ranking_songs.rds"), sep = ",", 
-            row.names = FALSE, quote = TRUE)
+saveRDS(wide_df, paste0(args[1],"_ranking_songs.rds"))
