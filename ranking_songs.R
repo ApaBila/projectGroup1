@@ -27,4 +27,6 @@ wide_df <- country %>%
 
 print(length(wide_df))
 
+wide_df <- wide_df[,c("title_artist","rank_1")]
+
 saveRDS(wide_df, paste0(args[1],"_ranking_songs.rds"))

@@ -1,14 +1,5 @@
-## STILL EDITING
-
-## before running, directories log, error, and output must exist
-## this is a TEMPLATE file!! 
-## Each Rscript should use a copy of this, replacing script.R with the appropriate Rscript files name
-## replace log, error variables with the appropriate subdirectory names
-## output should be saved to output/<SCRIPTNAME> subdirectory too, as coded in the Rscript
-
 log = log/ranking_songs/$(Cluster)_$(i).log
 error = error/ranking_songs/$(Cluster)_$(i).err
-
 ## output locations controlled by Rscript code
 
 container_image = osdf:///ospool/uc-shared/public/OSG-Staff/xalim_stat/R_tidyverse_FITSio.sif
@@ -23,6 +14,6 @@ transfer_input_files = ranking_songs.R, runScript.sh, by_region/over_300k/$(regi
 ## update as necessary upon testing
 request_cpus = 1
 request_memory = 1GB
-request_disk = 2GB
+request_disk = 1.5GB
 
 queue region from csvs

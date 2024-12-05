@@ -3,3 +3,6 @@ error/
 log/
 output/
 ranking_songs/
+*.rds
+*.tar
+*dag.*

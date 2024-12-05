@@ -5,7 +5,7 @@ library(purrr)
 library(patchwork)
 
 
-# List all .rds files that are ranking_songs, read in, store as list
+# List all .rds files that are af, read in, store as list
 files <- list.files(pattern = "\\_af.rds$", full.names = TRUE)
 final_data <- map(files, readRDS) # purrr
 

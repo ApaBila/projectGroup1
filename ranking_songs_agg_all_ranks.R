@@ -8,7 +8,7 @@ print(args)
 print(getwd())
 
 # List all .rds files that are ranking_songs, read in, store as list
-files <- list.files("ranking_songs/",pattern = "\\.rds$", full.names = TRUE)
+files <- list.files(pattern = "\\.rds$", full.names = TRUE)
 regional_data <- map(files, readRDS) # purrr
 
 # Merge and aggregate the data

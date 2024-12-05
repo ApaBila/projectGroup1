@@ -20,7 +20,7 @@ merged_data <- regional_data %>%
 top_songs <- merged_data %>%
   arrange(desc(rank_1)) %>%
   slice_head(n = 10)
-ggplot(top_songs, aes(x = reorder(title_artist, rank_1), y = rank_1)) + 
+song_bar_chart<-ggplot(top_songs, aes(x = reorder(title_artist, rank_1), y = rank_1)) + 
   geom_bar(stat = "identity", fill = "steelblue") + # Create bars
   coord_flip() + # Flip coordinates for readability
   labs(
@@ -30,7 +30,7 @@ ggplot(top_songs, aes(x = reorder(title_artist, rank_1), y = rank_1)) +
   ) + 
   theme_minimal() +  # Apply a clean theme
   theme(axis.text.y = element_text(size = 10))  # Adjust text size
-
+ggsave("/home/groups/STAT_DSCP/projectGroup1/output/ranking_songs/song_bar_chart.png", plot=song_bar_chart) 
 
 
 #Map 1####
@@ -82,7 +82,7 @@ map_data <- top_song_regions %>%
 map_data <- world_map %>%
   left_join(map_data, by = c("region" = "region"))
 # Plot
-ggplot(map_data, aes(long, lat, group = group)) + 
+map_plot_1 <- ggplot(map_data, aes(long, lat, group = group)) + 
   geom_polygon(aes(fill = rank_1), color = "white") +  # Color by rank_1
   scale_fill_gradient(low = "lightblue", high = "darkblue", na.value = "grey80") +  # Gradient for rank_1
   labs(
@@ -95,6 +95,7 @@ ggplot(map_data, aes(long, lat, group = group)) +
     axis.text = element_blank(),
     axis.ticks = element_blank()
   )
+ggsave("/home/groups/STAT_DSCP/projectGroup1/output/ranking_songs/map_plot1.png", plot=map_plot_1) 
 
 
 
@@ -110,7 +111,7 @@ map_data_2 <- second_song_regions %>%
 map_data_2 <- world_map %>%
   left_join(map_data_2, by = c("region" = "region"))
 # Plot
-ggplot(map_data_2, aes(long, lat, group = group)) + 
+map_plot_2 <- ggplot(map_data_2, aes(long, lat, group = group)) + 
   geom_polygon(aes(fill = rank_1), color = "white") + 
   scale_fill_gradient(low = "lightblue", high = "darkblue", na.value = "grey80") +
   labs(
@@ -123,4 +124,4 @@ ggplot(map_data_2, aes(long, lat, group = group)) +
     axis.text = element_blank(),
     axis.ticks = element_blank()
   )
-
+ggsave("/home/groups/STAT_DSCP/projectGroup1/output/ranking_songs/map_plot2.png", plot=map_plot_2)

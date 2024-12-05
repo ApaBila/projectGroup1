@@ -1,0 +1,3 @@
+job 1 submit_ranking_songs.sub
+
+script post 1 ranking_songs_POST.sh
