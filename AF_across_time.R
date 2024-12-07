@@ -4,7 +4,7 @@ library(tidyverse)
 library(tools)
 
 args <- commandArgs(trailingOnly=TRUE)
-file <- args[1]
+file <- paste0(args[1],".csv")
 data <- fread(file)
 city_name <- file_path_sans_ext(basename(file))
 
@@ -48,4 +48,4 @@ p <- ggplot(long_data, aes(x = time, y = value, group = variable)) +
     panel.grid.major = element_line(color = "gray90")  # Lighten major grid lines
   ) + 
   facet_wrap(~variable, scales = "free", ncol = 2)  # Set two columns for facets
-ggsave(paste0('plot/',city_name,'.png'))
+ggsave(paste0(city_name,'.png'))

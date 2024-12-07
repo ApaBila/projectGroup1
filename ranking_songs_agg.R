@@ -5,9 +5,9 @@ library(ggplot2)
 library(tidyr)
 
 # List all .rds files that are ranking_songs, read in, store as list
-files <- list.files(pattern = "\\.rds$", full.names = TRUE)
+files <- list.files("ranking_songs/", pattern = "\\.rds$", full.names = TRUE)
 regional_data <- map(files, readRDS) # purrr
-
+print(length(files))
 
 #Barchart####
 # Merge and aggregate the data
@@ -29,10 +29,15 @@ song_bar_chart<-ggplot(top_songs, aes(x = reorder(title_artist, rank_1), y = ran
     y = "Rank 1 Count"
   ) + 
   theme_minimal() +  # Apply a clean theme
-  theme(axis.text.y = element_text(size = 10))  # Adjust text size
-ggsave("/home/groups/STAT_DSCP/projectGroup1/output/ranking_songs/song_bar_chart.png", plot=song_bar_chart) 
+  theme(
+    axis.text.y = element_text(size = 16),
+    plot.title = element_text(size = 32),
+    axis.title.x = element_text(size = 24),
+    axis.title.y = element_text(size = 24)
+  )
+ggsave("barchart_top10songs.png", width=1024*4, height=768*3, units="px")
 
-
+library(maps)
 #Map 1####
 #TODO: maybe make this more generic - let there be arguments for how many song maps we want
 # Take the number 1 hit, go back to region files but this time keep region names
@@ -93,10 +98,10 @@ map_plot_1 <- ggplot(map_data, aes(long, lat, group = group)) +
   theme(
     axis.title = element_blank(),
     axis.text = element_blank(),
-    axis.ticks = element_blank()
+    axis.ticks = element_blank(),
+    plot.title = element_text(size = 32)
   )
-ggsave("/home/groups/STAT_DSCP/projectGroup1/output/ranking_songs/map_plot1.png", plot=map_plot_1) 
-
+ggsave("map_top1song.jpg", width=1024*4, height=768*3, units="px")
 
 
 # Mapping #2
@@ -122,6 +127,7 @@ map_plot_2 <- ggplot(map_data_2, aes(long, lat, group = group)) +
   theme(
     axis.title = element_blank(),
     axis.text = element_blank(),
-    axis.ticks = element_blank()
+    axis.ticks = element_blank(),
+    plot.title = element_text(size = 32)
   )
-ggsave("/home/groups/STAT_DSCP/projectGroup1/output/ranking_songs/map_plot2.png", plot=map_plot_2)
+ggsave("map_top2song.jpg", width=1024*4, height=768*3, units="px")

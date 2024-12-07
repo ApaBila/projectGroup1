@@ -1,0 +1,22 @@
+## before running, directories log, error, and output must exist
+
+log = log/region/test_$(Cluster)_$(region)_AGG.log
+error = error/region/test_$(Cluster)_$(region)_AGG.err
+
+## output locations controlled by Rscript code
+
+container_image = R_tidyverse_FITSio_patchwork_maps.sif
+
+executable = ./runScriptNoArg.sh
+arguments = AF_across_region.tar AF_across_region_agg.R
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = AF_across_region.tar, runScriptNoArg.sh, AF_across_region_agg.R
+
+## update as necessary upon testing
+request_cpus = 1
+request_memory = 2GB
+request_disk = 5GB
+
+queue

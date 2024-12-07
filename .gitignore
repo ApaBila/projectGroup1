@@ -6,3 +6,6 @@ ranking_songs/
 *.rds
 *.tar
 *dag.*
+*.png
+*.jpg
+*.sif

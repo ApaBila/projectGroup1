@@ -2,7 +2,7 @@ log = log/ranking_songs/$(Cluster)_$(i).log
 error = error/ranking_songs/$(Cluster)_$(i).err
 ## output locations controlled by Rscript code
 
-container_image = osdf:///ospool/uc-shared/public/OSG-Staff/xalim_stat/R_tidyverse_FITSio.sif
+container_image = R_tidyverse_FITSio_patchwork_maps.sif
 
 executable = ./runScript.sh
 arguments = ranking_songs.R $(region)

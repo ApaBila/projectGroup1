@@ -1,0 +1,19 @@
+log = log/AF_across_time/$(Cluster)_$(i).log
+error = error/AF_across_time/$(Cluster)_$(i).err
+output = output/AF_across_time/$(Cluster)_$(i).err
+
+container_image = R_tidyverse_FITSio_patchwork_maps.sif
+
+executable = ./runScript.sh
+arguments = AF_across_time.R $(region)
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = AF_across_time.R, runScript.sh, by_region/over_300k/$(region).csv
+
+## update as necessary upon testing
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1.5GB
+
+queue region from 2_csvs

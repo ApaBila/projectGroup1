@@ -1,0 +1,6 @@
+job 1 submit_AF_across_region.sub
+job 2 submit_AF_across_region_agg.sub
+
+script post 1 AF_across_region_POST.sh
+
+parent 1 child 2
