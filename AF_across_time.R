@@ -33,7 +33,7 @@ p <- ggplot(long_data, aes(x = time, y = value, group = variable)) +
     date_breaks = "3 months"  # Reduce frequency of labels for cleaner appearance
   ) +  
   labs(
-    title = paste("Average of Auto Feature Columns Over Time for",city_name),
+    title = paste("Average of Audio Feature Columns Over Time for",city_name),
     x = "Time",
     y = "Average Value"
   ) + 
