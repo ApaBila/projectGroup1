@@ -14,7 +14,7 @@ if (require("tidyr")) {
 args <- commandArgs(trailingOnly = TRUE)
 print(args)
 print(getwd())
-country <- read.csv(paste0("by_region/", args[1], ".csv"))
+country <- read.csv(paste0(args[1], ".csv"))
 
 # Separate individual artists from artist column, with "featuring"/multiple artists
 country <- country %>%
@@ -37,4 +37,4 @@ print(length(wide_df))
 
 # Keep only first rank and save. TODO: weighted rank?
 wide_df <- wide_df[, c("artist_individual", "rank_1")]
-saveRDS(wide_df, paste0("ranking_artists/", args[1], "_ranking_artists.rds"))
+saveRDS(wide_df, paste0(args[1], "_ranking_artists.rds"))
