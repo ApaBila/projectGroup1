@@ -17,25 +17,25 @@
 # TODO: Meiyi - 300k only .sh file 
 
 
-## 4 TASKS: .dag .dag .sub .sub
+## 5 TASKS: .dag .dag .dag .sub .sub
 
-# done: Chenyu/Amy - condor_submit submit_AF_across_region.dag
 # note: meanaf.R (job 1) is now AF_across_region.R
 # plots.R (job 2) is now AF_across_region_agg.R 
 # old region.R -> archive
-# CURRENT PROBLEM: patchwork installation failed. Use another way
-# to agg all plots. (SOLVED)
 condor_submit_dag -f submit_AF_across_region.dag # Warning! Erases logs and outputs
 
 condor_submit_dag -f submit_ranking_songs.dag # Warning! Erases logs and outputs
 
-# TODO: Amy/Chenyu add rm TASK.tar to a script, for script post 2 to the above dags
+# TODO: Amy/Chenyu add rm TASK.tar to a script, for script post 2 to the above dags(finished by Chenyu)
+
+
+# TODO: Amy, submit_ranking_artists.sub submit_ranking_artists_agg.sub submit_ranking_artists.dag
 
 
 condor_submit submit_AF_across_time.sub # Only Australia & US. See queue
 
 
-# TODO: Siyu/Amy/Chenyu/Meiyi condor_submit submit_5_songs_seasonal.sub (runs top_5_songs)
+# TODO: Siyu/Chenyu/Meiyi condor_submit submit_5_songs_seasonal.sub (runs top_5_songs)
 
 
 # Maybe: Bila - add appendix graph

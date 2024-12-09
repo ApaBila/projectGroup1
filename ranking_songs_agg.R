@@ -6,6 +6,7 @@ library(tidyr)
 
 # List all .rds files that are ranking_songs, read in, store as list
 files <- list.files("ranking_songs/", pattern = "\\.rds$", full.names = TRUE)
+files <- files[files != "./Global_ranking_songs.rds"]
 regional_data <- map(files, readRDS) # purrr
 print(length(files))
 

@@ -44,5 +44,5 @@ final_plot <- wrap_plots(plot_list, ncol = 4) +
         plot.background = element_rect(fill = "white", color = NA))  
 
 #print(final_plot)
-ggsave("Top 10 Regions for Features.png", plot = final_plot, width = 18, height = 10, dpi = 300)
+ggsave("Top_10_Regions_for_Features.png", plot = final_plot, width = 18, height = 10, dpi = 300)
 

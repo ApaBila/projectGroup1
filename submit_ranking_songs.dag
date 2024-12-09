@@ -2,5 +2,6 @@ job 1 submit_ranking_songs.sub
 job 2 submit_ranking_songs_agg.sub
 
 script post 1 ranking_songs_POST.sh
+script post 2 ranking_songs_agg_POST.sh
 
 parent 1 child 2
