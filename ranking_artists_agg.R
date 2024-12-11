@@ -20,7 +20,7 @@ merged_data <- regional_data %>%
 top_artists <- merged_data %>%
   arrange(desc(rank_1)) %>%    # Sort by rank_1 in descending order
   slice_head(n = 10)
-ggplot(top_artists, aes(x = reorder(artist_individual, rank_1), y = rank_1)) + 
+p1 <- ggplot(top_artists, aes(x = reorder(artist_individual, rank_1), y = rank_1)) + 
   geom_bar(stat = "identity", fill = "steelblue") + # Create bars
   coord_flip() + # Flip coordinates for readability
   labs(
@@ -35,7 +35,7 @@ ggplot(top_artists, aes(x = reorder(artist_individual, rank_1), y = rank_1)) +
     axis.title.x = element_text(size = 24),
     axis.title.y = element_text(size = 24)
   )
-ggsave("barchart_top10_artists.jpg", width=1024*4, height=768*3, units="px")
+ggsave(plot = p1, file = "barchart_top10_artists.jpg", width=1024*4, height=768*3, units="px")
 
 library(maps)
 #Map 1####
@@ -71,7 +71,7 @@ world_map <- map_data("world")
 map_data <- world_map %>%
   left_join(map_data, by = c("region" = "region"))
 # Plot the map
-ggplot(map_data, aes(long, lat, group = group)) + 
+p2 <- ggplot(map_data, aes(long, lat, group = group)) + 
   geom_polygon(aes(fill = rank_1), color = NA) +  # Color by rank_1
   scale_fill_gradient(low = "lightblue", high = "#3a066eff", na.value = "grey80") +  # Gradient for rank_1
   labs(
@@ -85,7 +85,7 @@ ggplot(map_data, aes(long, lat, group = group)) +
     axis.ticks = element_blank(),
     plot.title = element_text(size = 32)
   )
-ggsave("map_top1_artist.jpg", width=1024*4, height=768*3, units="px")
+ggsave(plot = p2, file = "map_top1_artist.jpg", width=1024*4, height=768*3, units="px")
 
 
 
@@ -122,7 +122,7 @@ world_map <- map_data("world")
 map_data <- world_map %>%
   left_join(map_data, by = c("region" = "region"))
 # Plot the map
-ggplot(map_data, aes(long, lat, group = group)) + 
+p3 <- ggplot(map_data, aes(long, lat, group = group)) + 
   geom_polygon(aes(fill = rank_1), color = NA) +  # Color by rank_1
   scale_fill_gradient(low = "lightblue", high = "#3a066eff", na.value = "grey80") +  # Gradient for rank_1
   labs(
@@ -136,4 +136,4 @@ ggplot(map_data, aes(long, lat, group = group)) +
     axis.ticks = element_blank(),
     plot.title = element_text(size = 32)
   )
-ggsave("map_top2_artist.jpg", width=1024*4, height=768*3, units="px")
+ggsave(plot = p3, file = "map_top2_artist.jpg", width=1024*4, height=768*3, units="px")

@@ -1,1 +1,34 @@
-Directory used by Fall 2024 STAT 605 Project Group 1 to gather data files
+# Fall 2024 STAT 605 Project Group 1: Spotify Charts Analysis
+
+Repository for scripts to run our analysis automatically on CHTC.
+
+## Setup Instructions
+
+Follow these steps to set up the project and get started:
+
+### 1. Clone the Repository
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/username/projectGroup1.git
+cd projectGroup1
+```
+
+### 2. Download the Data
+Then download the data into your copy of the repository at
+https://www.kaggle.com/datasets/sunnykakar/spotify-charts-all-audio-data
+
+
+### 3. Check File Paths
+Then check if the file paths are correct for your machine.
+WARNING: You will most likely need to change the path to the
+*.sif file with a version of R that has all needed R packages.
+
+### 4. Run MASTER.sh
+Finally, run MASTER.sh to automatically get all our graphs.
+```bash
+./MASTER.sh
+```
+
+You might need to check the error files for proper file paths, packages,
+and permissions.

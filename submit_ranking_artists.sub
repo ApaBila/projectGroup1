@@ -16,4 +16,4 @@ request_cpus = 1
 request_memory = 1GB
 request_disk = 1.5GB
 
-queue region from test_csvs
+queue region from csvs

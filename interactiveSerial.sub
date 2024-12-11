@@ -1,15 +1,16 @@
 universe = vanilla
 log = interactiveSerial.log
 
-container_image = osdf:///ospool/uc-shared/public/OSG-Staff/xalim_stat/R_tidyverse_FITSio.sif
+container_image = R_tidyverse_FITSio_patchwork_maps.sif
 
-transfer_input_files = ranking_songs.tar, ranking_songs_agg.R
+transfer_input_files = AF_across_region_agg.R, AF_across_region.R, AF_across_time.R, ranking_artists_agg.R, ranking_artists.R, ranking_seasonal.R, ranking_songs_agg.R, ranking_songs.R, split_data_by_region.R, run_all.sh, by_region.tar
+
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 request_cpus = 1
-request_memory = 1GB
-request_disk = 1.5GB
+request_memory = 4GB
+request_disk = 25GB
 
 queue

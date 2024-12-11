@@ -36,7 +36,7 @@ song_bar_chart<-ggplot(top_songs, aes(x = reorder(title_artist, rank_1), y = ran
     axis.title.x = element_text(size = 24),
     axis.title.y = element_text(size = 24)
   )
-ggsave("barchart_top10songs.png", width=1024*4, height=768*3, units="px")
+ggsave(plot = song_bar_chart, file = "barchart_top10_songs.png", width=1024*4, height=768*3, units="px")
 
 library(maps)
 #Map 1####
@@ -102,7 +102,7 @@ map_plot_1 <- ggplot(map_data, aes(long, lat, group = group)) +
     axis.ticks = element_blank(),
     plot.title = element_text(size = 32)
   )
-ggsave("map_top1song.jpg", width=1024*4, height=768*3, units="px")
+ggsave(plot = map_plot_1, file = "map_top1_song.jpg", width=1024*4, height=768*3, units="px")
 
 
 # Mapping #2
@@ -131,4 +131,4 @@ map_plot_2 <- ggplot(map_data_2, aes(long, lat, group = group)) +
     axis.ticks = element_blank(),
     plot.title = element_text(size = 32)
   )
-ggsave("map_top2song.jpg", width=1024*4, height=768*3, units="px")
+ggsave(plot = map_data_2,file = "map_top2_song.jpg", width=1024*4, height=768*3, units="px")
